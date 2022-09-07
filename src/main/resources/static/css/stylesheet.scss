@@ -4,6 +4,7 @@
 body {
 	padding-top: 120px; /* ヘッダーの後ろに要素が隠れないようにするため */
 	background-color: #FFF;
+	font-family: $font_noto;
 }
 
 header {
@@ -31,7 +32,6 @@ header {
 	/* ヘッダーボタン ↓ */
 	.reset {
 		text-decoration: none;
-		font-family: $font_noto;
 		font-weight: normal;
 		font-size: 12px;
 		line-height: 1.5;

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>フリマ|ホーム</title>
+<link th:href="@{/css/stylesheet.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header>
+		<a class="header_logo" href="/"><img th:src="@{/images/fulema_logo_header.png}"></a>
+		<th:block th:nuless="${session.loginUser}" class="header_btn">
+			<ul>
+				<div>
+					<a href="/login_display" class="reset flat border">ログイン</a>
+				</div>
+				<div>
+					<a href="/signup_display" class="reset flat border">新規登録</a>
+				</div>
+			</ul>
+		</th:block>
+		<th:block th:if="${session.loginUser}" class="header_btn">
+			<div>
+			 	<a href="/login_display" class="reset flat border">出品</a>
+			</div>
+			<div>
+			 	<a href="/signup_display" class="reset flat border">マイページ</a>
+			</div>
+		</th:block>
+	</header>
+	<div class="item" th:each="item:${items}">
+		<h2 th:text="${item.name}"></h2>
+		<img class="item_image" th:src="@{/images/{image}(image=${item.image})}">
+		<p >¥<span th:text="${item.price}"></span></p>
+	</div>
+	<footer></footer>
+</body>
+</html>
